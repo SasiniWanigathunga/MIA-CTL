@@ -1,7 +1,7 @@
 import os
 import random
 
-def generate_datatxt(data_dir = r"./dataset/"):
+def generate_datatxt(data_dir = r"/kaggle/working/MIA-CTL/dataset/"):
     '''
     Read from the dataset and make file directory
     :param data_dir: the whole dataset directory
@@ -13,7 +13,7 @@ def generate_datatxt(data_dir = r"./dataset/"):
             if file:
                 png_files.append(os.path.join(root,file))
         break
-    with open(r"./data_folder/data.txt",'w') as f:
+    with open(r"/kaggle/working/MIA-CTL/data_folder/data.txt",'w') as f:
         for file in png_files:
             # modify the following code if neccesary
             # Our origin dataset file format are like:
@@ -22,7 +22,7 @@ def generate_datatxt(data_dir = r"./dataset/"):
             name = file.split('_')[3]
             f.write(file+'\t'+label+'\t'+name+'\n')
 
-def split_ssl_and_sl(ssl_rate = 0.2,whole_file=r"./data_folder/data.txt"):
+def split_ssl_and_sl(ssl_rate = 0.2,whole_file=r"/kaggle/working/MIA-CTL/data_folder/data.txt"):
 
     '''
     Divide the whole datasets into self-supervised sub-dataset and supervised sub-dataset.
@@ -71,8 +71,8 @@ def split_ssl_and_sl(ssl_rate = 0.2,whole_file=r"./data_folder/data.txt"):
     # print(train_patient_lists)
     # print(test_patient_lists)
 
-    ssl_list_file = open(r"./data_folder/self_supervised_list_folder.txt",'w')
-    sl_list_file = open(r"./data_folder/supervised_folder.txt",'w')
+    ssl_list_file = open(r"/kaggle/working/MIA-CTL/data_folder/self_supervised_list_folder.txt",'w')
+    sl_list_file = open(r"/kaggle/working/MIA-CTL/data_folder/supervised_folder.txt",'w')
 
     with open(whole_file,'r') as file:
         line = file.readline()
@@ -90,7 +90,7 @@ def split_ssl_and_sl(ssl_rate = 0.2,whole_file=r"./data_folder/data.txt"):
     ssl_list_file.close()
     ssl_list_file.close()
 
-def generate_folder(folder_num = 10,whole_file=r"./data_folder/supervised_folder.txt"):
+def generate_folder(folder_num = 10,whole_file=r"/kaggle/working/MIA-CTL/data_folder/supervised_folder.txt"):
 
     '''
     Generate 10 folders used to perform 10-fold cross validation experiment.
@@ -138,8 +138,8 @@ def generate_folder(folder_num = 10,whole_file=r"./data_folder/supervised_folder
         # print(train_patient_lists)
         # print(test_patient_lists)
 
-        train_list_file = open(r"./data_folder/train_folder_"+str(folder)+".txt",'w')
-        test_list_file = open(r"./data_folder/val_folder_"+str(folder)+".txt",'w')
+        train_list_file = open(r"/kaggle/working/MIA-CTL/data_folder/train_folder_"+str(folder)+".txt",'w')
+        test_list_file = open(r"/kaggle/working/MIA-CTL/data_folder/val_folder_"+str(folder)+".txt",'w')
 
         with open(whole_file,'r') as file:
             line = file.readline()
