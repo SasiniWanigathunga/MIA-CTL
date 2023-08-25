@@ -25,7 +25,7 @@ class MyDataSet(Dataset):
         return len(self.imgs)
 
 
-    def __load_file(self,pre = "data_folder",mode='train',folder_num = 0):
+    def __load_file(self,pre = "/kaggle/working/MIA-CTL/data_folder",mode='train',folder_num = 0):
         if mode == 'test':
             mode+= '_folder.txt'
         elif mode == 'ssl':
