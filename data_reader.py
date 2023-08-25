@@ -27,11 +27,11 @@ class MyDataSet(Dataset):
 
     def __load_file(self,pre = "/kaggle/working/MIA-CTL/data_folder",mode='train',folder_num = 0):
         if mode == 'test':
-            mode+= '_folder.txt'
+            mode = '/kaggle/working/MIA-CTL/' + mode + '_folder.txt'
         elif mode == 'ssl':
-            mode = 'self_supervised_list_folder.txt'
+            mode = '/kaggle/working/MIA-CTL/self_supervised_list_folder.txt'
         else:
-            mode+= '_folder_' +str(folder_num)+'.txt'
+            mode = '/kaggle/working/MIA-CTL/' +mode + '_folder_' +str(folder_num)+'.txt'
         mode = os.path.join(pre,mode)
         fileNames=[]
         with open(mode,'r') as file:
