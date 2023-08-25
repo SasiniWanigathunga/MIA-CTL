@@ -34,7 +34,7 @@ class MyDataSet(Dataset):
             mode = '/kaggle/working/MIA-CTL/data_folder/self_supervised_list_folder.txt'
         else:
             mode = '/kaggle/working/MIA-CTL/data_folder/' +mode + '_folder_' +str(folder_num)+'.txt'
-        mode = os.path.join(pre,mode)
+        #mode = os.path.join(pre,mode)
         fileNames=[]
         with open(mode,'r') as file:
             lines = file.readlines()
